@@ -1,0 +1,14 @@
+/home/oli/projects/quajoo/weather/server/bin/Debug/netcoreapp2.2/server.deps.json
+/home/oli/projects/quajoo/weather/server/bin/Debug/netcoreapp2.2/server.runtimeconfig.json
+/home/oli/projects/quajoo/weather/server/bin/Debug/netcoreapp2.2/server.runtimeconfig.dev.json
+/home/oli/projects/quajoo/weather/server/bin/Debug/netcoreapp2.2/server.dll
+/home/oli/projects/quajoo/weather/server/bin/Debug/netcoreapp2.2/server.pdb
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.csprojAssemblyReference.cache
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.csproj.CoreCompileInputs.cache
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.RazorAssemblyInfo.cache
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.RazorAssemblyInfo.cs
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.AssemblyInfoInputs.cache
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.AssemblyInfo.cs
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.RazorTargetAssemblyInfo.cache
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.dll
+/home/oli/projects/quajoo/weather/server/obj/Debug/netcoreapp2.2/server.pdb
