@@ -29,9 +29,9 @@ namespace server.Controllers
         [EnableCors("AllowAll")]
         public ActionResult<string> Get(double lat, double lon) {
             Console.WriteLine("Yolo");
-            Task<string> response = getWeatherDataByGeoPointAsync(lat, lon);
+            string response = getWeatherDataByGeoPointAsync(lat, lon).Result;
             Console.WriteLine("What is this?");
-            return response.Result;
+            return response;
         }
 
         private async Task<string> getWeatherDataByGeoPointAsync(double lat, double lon) {
@@ -40,7 +40,9 @@ namespace server.Controllers
             "APPID=" + apikey;
             Console.WriteLine(requestString);
             HttpClient client = new HttpClient();
-            return await client.GetStringAsync(requestString);
+            string response = client.GetStringAsync(requestString).Result;
+            Console.WriteLine(response);
+            return response;
         }
     }
 }

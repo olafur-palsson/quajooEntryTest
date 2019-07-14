@@ -2,6 +2,8 @@
     A simple tool to set and get cookies of the browser
 */
 
+
+const cookieKey = 'notplaces'
 const separatorCity = '#city'
 const separatorData = '#data'
 
@@ -37,44 +39,57 @@ const getCookie = cookieName => {
 }
 
 const ifNoDefCitiesSetCitiesCookie = () => {
-  const cities = getCookie('places')
-  setCookie('places', cities)
+  const cities = getCookie('notplaces')
+  setCookie('notplaces', cities)
 }
 
 ifNoDefCitiesSetCitiesCookie()
 
 const addCityToList = (city, lat, lon) => {
 
-  const cityArray = getCookie('places').split(separatorCity)
+  const cityArray = getCookie('notplaces').split(separatorCity)
   const cookieString = [city, lat, lon].join(separatorData)
   cityArray.push(cookieString)
-  setCookie('places', cityArray.join(separatorCity))
+  setCookie('notplaces', cityArray.join(separatorCity))
   showCities()
 }
 
 const resetCookie = () => {
-    deleteCookie('places')
-    setCookie('places', '')
+    deleteCookie('notplaces')
+    setCookie('notplaces', '')
 }
 
 const removeCityFromList = (name) => {
-  const cityArray = getCookie('places')
+  const cityArray = getCookie('notplaces')
   let cityToRemoveIndex
   cityArray.forEach((cityName, i) => {
     if (cityName === name) cityToRemoveIndex = i
   })
   cityArray.splice(cityToRemoveIndex, 1)
-  setCookie('places', cityArray)
+  setCookie('notplaces', cityArray)
 }
 
 const showCities = () => {
-  console.log(getCookie('places').split(separatorCity))
+  console.log(getCookie('notplaces').split(separatorCity))
+}
+
+const getCities = () => {
+  const data = getCookie('notplaces')
+  return data.split(separatorCity).map(city => {
+    let [cityName, lat, lon] = city.split(separatorData)
+    return {
+      cityName,
+      lat,
+      lon
+    }
+  })
 }
 
 const Cookies = {
   removeCityFromList,
   addCityToList,
-  showCities
+  showCities,
+  getCities
 }
 
 export default Cookies
