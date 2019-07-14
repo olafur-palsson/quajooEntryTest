@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import WeatherWidget from './components/WeatherWidget'
 import './App.css';
 

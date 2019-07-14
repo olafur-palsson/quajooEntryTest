@@ -1,6 +1,5 @@
 
 const currency = 'http://apis.is/currency/m5'
-const weatherString = 'http://localhost:5000/api/weather'
 
 
 const request = (requestString) => {
@@ -28,10 +27,12 @@ const request = (requestString) => {
   }).catch(error => console.log('Error sending request:  \n  ' + error.message))
 }
 
-export const getCurrency = () => {
-  request(currency)
+export const geocode = async (searchString) => {
+  const requestString = `https://eu1.locationiq.com/v1/search.php?key=1ccea6f54c1281&q=${ searchString }&format=json`
+  return await request(requestString)
 }
 
-export const getWeather = () => {
+export const getWeather = (lat, lon) => {
+  const weatherString = `http://localhost:5000/api/weather/latlon/${lat}/${lon}`
   return request(weatherString)
 }

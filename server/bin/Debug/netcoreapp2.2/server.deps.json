@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "ccf84f944cd0fa3c4d4880af80ea6f4c15fa19ad"
+    "signature": "b507542b7e30f7ec666d3b90e689b5265ec2f2e1"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "server/1.0.0": {
         "dependencies": {
+          "Flurl": "2.8.2",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
@@ -34,6 +35,17 @@
         },
         "compile": {
           "server.dll": {}
+        }
+      },
+      "Flurl/2.8.2": {
+        "runtime": {
+          "lib/netstandard2.0/Flurl.dll": {
+            "assemblyVersion": "2.8.2.0",
+            "fileVersion": "2.8.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Flurl.dll": {}
         }
       },
       "Json.Net/1.0.16": {
@@ -3248,6 +3260,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Flurl/2.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3VEYAqkGTGHgla4xuyEB4d8XGLeMX2k05C4WfI7YmKQHsL7RhoGu3L6h1xsKKTPFWjEL13p09XOIGwD1pQ86dg==",
+      "path": "flurl/2.8.2",
+      "hashPath": "flurl.2.8.2.nupkg.sha512"
     },
     "Json.Net/1.0.16": {
       "type": "package",

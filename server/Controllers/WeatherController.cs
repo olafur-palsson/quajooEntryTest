@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace server.Controllers
 {
-    [Route("api/weather")]
+    [Route("api/weather/")]
     [EnableCors]
     [ApiController]
     public class WeatherController : ControllerBase
     {
+        const string apikey = "7652a3b63b68e32a39da5533cdd3d3d9";
         // GET api/values
         [HttpGet]
         [EnableCors("AllowAll")]
@@ -22,29 +24,23 @@ namespace server.Controllers
             return JsonConvert.SerializeObject(weather);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
+        [HttpGet]
+        [Route("latlon/{lat}/{lon}")]
+        [EnableCors("AllowAll")]
+        public ActionResult<string> Get(double lat, double lon) {
+            Console.WriteLine("Yolo");
+            Task<string> response = getWeatherDataByGeoPointAsync(lat, lon);
+            Console.WriteLine("What is this?");
+            return response.Result;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+        private async Task<string> getWeatherDataByGeoPointAsync(double lat, double lon) {
+            Console.WriteLine("yolo2");
+            string requestString = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat.ToString() + "&lon=" + lon.ToString() + "&cnt=1&" + 
+            "APPID=" + apikey;
+            Console.WriteLine(requestString);
+            HttpClient client = new HttpClient();
+            return await client.GetStringAsync(requestString);
         }
     }
 }
